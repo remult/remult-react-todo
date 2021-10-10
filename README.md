@@ -17,7 +17,7 @@ Once it's done, open two terminals to run:
    ```
 2. The React dev cli
    ``` 
-   npm run dev-ng
+   npm run dev-react
    ```
 
 And proceed to the [Entities](https://remult.github.io/guide/setup-remult.html#entities) section of the tutorials
