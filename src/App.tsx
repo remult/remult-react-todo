@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { remult } from "./common";
+import { auth, remult } from "./common";
 import { Task } from "./Task";
 import { TaskEditor } from "./TaskEditor";
 
@@ -8,15 +8,17 @@ const taskRepo = remult.repo(Task);
 function App() {
   const [{ newTask }, setNewTask] =
     useState(() => ({ newTask: taskRepo.create() }));
-  const [tasks, setTask] = useState([] as Task[]);
+  const [tasks, setTasks] = useState([] as Task[]);
   const [hideCompleted, setHideCompleted] = useState(false);
-  const loadTasks = useCallback(() =>
-    taskRepo.find({
-      orderBy: task => task.completed,
-      where: task => hideCompleted ?
-        task.completed.isEqualTo(false) :
-        undefined!
-    }).then(setTask), [hideCompleted]);
+  const loadTasks = useCallback(() => {
+    if (remult.authenticated())
+      taskRepo.find({
+        orderBy: task => task.completed,
+        where: task => hideCompleted ?
+          task.completed.isEqualTo(false) :
+          undefined!
+      }).then(setTasks)
+  }, [hideCompleted]);
   useEffect(() => { loadTasks() }, [loadTasks]);
 
   const createTask = () =>
@@ -32,8 +34,26 @@ function App() {
     loadTasks();
   }
 
+  const [username, setUsername] = useState("");
+  const signIn = () => auth.signIn(username).then(loadTasks);
+  const signOut = () => {
+    auth.signOut();
+    setTasks([]);
+  }
+  if (!remult.authenticated()) {
+    return (<div>
+      <input value={username}
+        onChange={e => setUsername(e.target.value)} />
+      <button onClick={signIn}>Sign In </button>
+    </div>)
+  }
+
+
   return (
     <div>
+      <p>
+        Hi {remult.user.name}<button onClick={signOut}>Sign out</button>
+      </p>
       <input value={newTask.title}
         onChange={e =>
           setNewTask({ newTask: newTask.assign({ title: e.target.value }) })}

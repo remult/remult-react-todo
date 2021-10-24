@@ -1,4 +1,13 @@
-import axios from "axios";
 import { Remult } from "remult";
+import axios from 'axios';
+import { AuthService } from "./AuthService";
 
-export const remult = new Remult(axios); 
+axios.interceptors.request.use(config => {
+    let token = AuthService.fromStorage();;
+    if (token)
+        config.headers!["Authorization"] = "Bearer " + token;
+    return config;
+});
+export const remult = new Remult(axios);
+
+export const auth = new AuthService(remult);
