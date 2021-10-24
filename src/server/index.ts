@@ -1,6 +1,7 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { initExpress } from 'remult/server';
+import '../Task';
 
 let app = express();
 let api = initExpress(app);
