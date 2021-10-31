@@ -24,3 +24,34 @@ And proceed to the [Entities](https://remult.github.io/guide/setup-remult.html#e
 
 # What does it do?
 You can see the diff using [github compare](https://github.com/remult/remult-react-todo/compare/first-commit...master)
+
+
+# To add swagger and graphql
+```sh
+npm i graphql express-graphql swagger-ui-express
+npm i --save-dev @types/swagger-ui-express
+```
+And replace index.ts with:
+```ts
+import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import { buildSchema } from 'graphql';
+import { graphqlHTTP } from 'express-graphql';
+import { remultGraphql } from 'remult/graphql';
+import { initExpress } from 'remult/server';
+
+let app = express();
+let api = initExpress(app);
+
+app.use('/api/docs', swaggerUi.serve,
+    swaggerUi.setup(api.openApiDoc({ title: 'remult-react-todo' })));
+
+const { schema, rootValue } = remultGraphql(api);
+app.use('/api/graphql', graphqlHTTP({
+    schema: buildSchema(schema),
+    rootValue,
+    graphiql: true,
+}));
+
+app.listen(3002, () => console.log("Server started"));
+```
