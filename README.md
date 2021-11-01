@@ -38,10 +38,11 @@ import swaggerUi from 'swagger-ui-express';
 import { buildSchema } from 'graphql';
 import { graphqlHTTP } from 'express-graphql';
 import { remultGraphql } from 'remult/graphql';
-import { initExpress } from 'remult/server';
+import { remultExpress } from 'remult/remult-express';
 
 let app = express();
-let api = initExpress(app);
+let api = remultExpress();
+app.use(api);
 
 app.use('/api/docs', swaggerUi.serve,
     swaggerUi.setup(api.openApiDoc({ title: 'remult-react-todo' })));

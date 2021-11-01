@@ -1,7 +1,7 @@
 import express from 'express';
-import { initExpress } from 'remult/server';
+import { remultExpress } from 'remult/remult-express';
 
 let app = express();
-initExpress(app);
+app.use(remultExpress());
 
 app.listen(3002, () => console.log("Server started"));
