@@ -9616,10 +9616,10 @@
   "resolved" "https://registry.npmjs.org/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz"
   "version" "1.1.0"
 
-"remult@^0.9.21":
-  "integrity" "sha512-2jHj1Y5oKF3aHKRxLwQdTJ86NAOK/ArY9OiWQJq1UGWpjmwEk2QFfAerUTcI2V6AL6Y/6xsVqvWZIUAD0rDl5Q=="
-  "resolved" "https://registry.npmjs.org/remult/-/remult-0.9.21.tgz"
-  "version" "0.9.21"
+"remult@^0.9.25":
+  "integrity" "sha512-Ijf+UkwNfNS8+7dLt677DzqDCarkcZFK8YzwvVn1fxTToONyeF8BsXgD4c8FlZ5Njo7ZKu1XKxKYrVDFMxlHcQ=="
+  "resolved" "https://registry.npmjs.org/remult/-/remult-0.9.25.tgz"
+  "version" "0.9.25"
   dependencies:
     "body-parser" "^1.18.3"
     "reflect-metadata" "^0.1.13"
