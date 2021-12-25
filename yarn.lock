@@ -7419,10 +7419,10 @@
   "resolved" "https://registry.npmjs.org/relateurl/-/relateurl-0.2.7.tgz"
   "version" "0.2.7"
 
-"remult@^0.9.26":
-  "integrity" "sha512-BDudH3VrXQhPfGhhM5k5Vf9EpGCxYr4sc1T5YfNWqGkAjTYjdJzM/uApe7ZFpGkwVLAW97gYUSXYHT1M4fKJOA=="
-  "resolved" "https://registry.npmjs.org/remult/-/remult-0.9.26.tgz"
-  "version" "0.9.26"
+"remult@^0.9.28":
+  "integrity" "sha512-3tdPGpxUugqWolfbTONN69vOItSQ3M5rDRFw7+0fvehyTALshBop4d2DKy6DRerRBUnjQvzQjQXWln5zcYhO2A=="
+  "resolved" "https://registry.npmjs.org/remult/-/remult-0.9.28.tgz"
+  "version" "0.9.28"
   dependencies:
     "body-parser" "^1.18.3"
     "reflect-metadata" "^0.1.13"
