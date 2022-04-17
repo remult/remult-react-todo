@@ -7378,10 +7378,10 @@
   "resolved" "https://registry.npmjs.org/relateurl/-/relateurl-0.2.7.tgz"
   "version" "0.2.7"
 
-"remult@^0.13.17":
-  "integrity" "sha512-meNa+hSV/Bmu+rBW+Ni3CI/TXlpKqG22A58ralxIXTaOlQWwc6+o4R9s7XR4BXA1mtLtqA+54PrvkO6T3QONLg=="
-  "resolved" "https://registry.npmjs.org/remult/-/remult-0.13.17.tgz"
-  "version" "0.13.17"
+"remult@^0.13.18":
+  "integrity" "sha512-MBf62430JxAZNA1jW+KzIi61xziwm8hCafFpIKx+pacjUfsOnnWOM4p/xsO6hdcV/UXd3SDd+25GoZTfjMowxA=="
+  "resolved" "https://registry.npmjs.org/remult/-/remult-0.13.18.tgz"
+  "version" "0.13.18"
   dependencies:
     "body-parser" "^1.18.3"
     "reflect-metadata" "^0.1.13"
